@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println(isPrime(9))
-	fmt.Println(primeBetween(1, 100))
+	fmt.Println(primeBetweenNumbers(1, 100))
 }
 
 func isPrime(i int) bool {
@@ -28,7 +28,7 @@ func isPrime(i int) bool {
 	return true
 }
 
-func primeBetween(num1, num2 int) []int {
+func primeBetweenNumbers(num1, num2 int) []int {
 	xi := []int{}
 
 	for i := num1; i <= num2; i++ {

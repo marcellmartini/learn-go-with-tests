@@ -31,9 +31,9 @@ func TestPrime(t *testing.T) {
 	})
 }
 
-func TestPrimeBetween(t *testing.T) {
+func TestPrimeBetweenNumbers(t *testing.T) {
 	t.Run("Prime between 1 10", func(t *testing.T) {
-		got := primeBetween(1, 10)
+		got := primeBetweenNumbers(1, 10)
 		want := []int{2, 3, 5, 7}
 
 		if !reflect.DeepEqual(got, want) {
