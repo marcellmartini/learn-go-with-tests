@@ -7,25 +7,25 @@ import (
 
 func TestPrime(t *testing.T) {
 	t.Run("Prime of 1", func(t *testing.T) {
-		got := prime(1)
+		got := isPrime(1)
 		want := false
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("Prime of 3", func(t *testing.T) {
-		got := prime(3)
+		got := isPrime(3)
 		want := true
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("Prime of 4", func(t *testing.T) {
-		got := prime(4)
+		got := isPrime(4)
 		want := false
 		assertCorrectMessage(t, got, want)
 	})
 
 	t.Run("Prime of 21", func(t *testing.T) {
-		got := prime(21)
+		got := isPrime(21)
 		want := false
 		assertCorrectMessage(t, got, want)
 	})
