@@ -11,17 +11,18 @@ func main() {
 }
 
 func isPrime(i int) bool {
-	if i < 2 {
+	switch {
+	case i < 2:
 		return false
-	}
 
-	if i != 2 && i%2 == 0 {
+	case i != 2 && i%2 == 0:
 		return false
-	}
 
-	for j := 3; j <= int(math.Sqrt(float64(i))); j += 2 {
-		if i%j == 0 {
-			return false
+	default:
+		for j := 3; j <= int(math.Sqrt(float64(i))); j += 2 {
+			if i%j == 0 {
+				return false
+			}
 		}
 	}
 

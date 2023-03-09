@@ -5,30 +5,39 @@ import (
 	"testing"
 )
 
-func TestPrime(t *testing.T) {
-	t.Run("Prime of 1", func(t *testing.T) {
-		got := isPrime(1)
-		want := false
-		assertCorrectMessage(t, got, want)
-	})
+func TestISPrime(t *testing.T) {
+	tests := []struct {
+		name   string
+		number int
+		want   bool
+	}{
+		{
+			name:   "Prime of 1",
+			number: 1,
+			want:   false,
+		},
+		{
+			name:   "Prime of 3",
+			number: 3,
+			want:   true,
+		},
+		{
+			name:   "Prime of 4",
+			number: 4,
+			want:   false,
+		},
+		{
+			name:   "Prime of 21",
+			number: 21,
+			want:   false,
+		},
+	}
 
-	t.Run("Prime of 3", func(t *testing.T) {
-		got := isPrime(3)
-		want := true
-		assertCorrectMessage(t, got, want)
-	})
-
-	t.Run("Prime of 4", func(t *testing.T) {
-		got := isPrime(4)
-		want := false
-		assertCorrectMessage(t, got, want)
-	})
-
-	t.Run("Prime of 21", func(t *testing.T) {
-		got := isPrime(21)
-		want := false
-		assertCorrectMessage(t, got, want)
-	})
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			assertCorrectMessage(t, tt.number, isPrime(tt.number), tt.want)
+		})
+	}
 }
 
 func TestPrimeBetweenNumbers(t *testing.T) {
@@ -42,9 +51,9 @@ func TestPrimeBetweenNumbers(t *testing.T) {
 	})
 }
 
-func assertCorrectMessage(t testing.TB, got, want bool) {
+func assertCorrectMessage(t testing.TB, number int, got, want bool) {
 	t.Helper()
 	if got != want {
-		t.Errorf("got %t want %t", got, want)
+		t.Errorf("isPrime(%v) = %v, want: %v", number, got, want)
 	}
 }
